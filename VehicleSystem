@@ -1,0 +1,60 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.vehiclesystem;
+
+/**
+ *
+ * @author User
+ */
+
+interface Engine{
+    void Start();
+}
+class petrolEngine implements Engine{
+   @Override
+    public void start(){
+        System.out.println("Petrol Engin Stating with high Idle");
+    }
+}
+
+interface Vehicle{
+void startVehicle();
+}
+
+class Car implements Vehicle{
+    private  Engine engine;
+    
+    public Car(Engine engine){
+        this.engine = engine;
+    }
+    @Override
+    public void sVehicle(){
+    engine.Start();
+    System.out.println("Car is ready to ride");
+    }
+}
+class Truck implements Vehicle{
+    private  Engine engine;
+    
+    public Truck(Engine engine){
+        this.engine = engine;
+    }
+
+    public void sVehicle(){
+    engine.Start();
+    System.out.println("Truck to build pressure in brakes");
+    }
+}
+public class VehicleSystem {
+
+    public static void main(String[] args) {
+      Engine engine = new petrolEngine();
+      
+      Vehicle car = new Car(engine);
+      Vehicle truck = new Truck(engine);
+      car.startVehicle();
+      truck.startVehicle();
+    }
+}

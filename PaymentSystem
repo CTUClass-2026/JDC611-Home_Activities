@@ -1,0 +1,57 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.paymentsystem;
+
+/**
+ *
+ * @author User
+ */
+// insterface method creation
+interface PaymentMethod{
+    void  pay(double price);
+}
+//Payment types:CreditCard class that implements PaymentMethod
+class CreditCard implements PaymentMethod{
+    @Override
+    public void pay(double price){
+    if (price<=0){
+    System.out.println("Payment must not be Zero or less than Zero");
+    return;
+    }
+    System.out.println("Paid R"+price+" using Credit Card.");
+    }
+}
+// Payment type: Paypal class that implements PaymentMethod
+class PayPal implements PaymentMethod{
+    @Override
+    public void pay(double price){
+    if (price<=0){
+    System.out.println("Payment must not be Zero or less than Zero");
+    return;
+    }
+    System.out.println("Paid R"+price+" using Pay Pal.");
+    }
+}
+
+// Payment system to process the different payments
+public class PaymentSystem {
+
+    public static void main(String[] args) {
+        
+        // referancing the interface for implement payment types
+        PaymentMethod pay;
+        
+        // CreditCard Price payment
+        pay = new CreditCard();
+        pay.pay(856.99);
+        
+        // Paypal price payment
+        pay = new PayPal();
+        pay.pay(755.95);
+        
+        //Negative test
+        pay.pay(-67);
+    }
+}

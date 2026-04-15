@@ -1,0 +1,63 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.librarymanagement;
+
+/**
+ *
+ * @author User
+ */
+class LibItem{
+private  String title;
+private String ID;
+
+public LibItem(String title, String ID){
+this.title = title;
+this.ID = ID;
+}
+
+public String Gettitle(){return title;}
+public String GetID(){return ID;}
+
+public void displayItemInfo(){
+System.out.println("Library Item-->ID:"+ ID +", Title: "+ title+"<--");
+}
+}
+
+class Book extends LibItem{
+    public Book(String title,String ID){
+        super(title,ID);
+}
+    @Override
+    public void displayItemInfo(){
+    System.out.println("Book Info--> ID: "+GetID()+", Title:"+Gettitle()+"<--");
+    }
+}
+
+class Journal extends LibItem{
+    public Journal(String title,String ID){
+        super(title,ID);
+}
+    @Override
+    public void displayItemInfo(){
+    System.out.println("Journal Info--> ID: "+GetID()+", Title:"+Gettitle()+"<--");
+    }
+}
+
+public class LibraryManagement {
+
+    public static void main(String[] args) {
+        
+        LibItem[] items ={
+            new Book("Harry Potter","B1.2"),
+            new Journal("Live of Dogs","J6.23"),
+            new Journal("AI Coding","ID10T"),
+            new Book("Harry Potter 7","B1.2")
+        };
+        for (LibItem item : items){
+        item.displayItemInfo();
+        }
+        
+    }
+}
